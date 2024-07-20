@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Canva
 
-## Getting Started
+Canva is a collaborative online whiteboard platform that enables teams to work together in real-time. This project is a clone of the popular Miro application.
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Real-time collaboration
+- Board creation and management
+- Drag-and-drop functionality
+- Sticky notes, shapes, and text
+- Zoom in/out and pan
+- User authentication
+- Responsive design
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Installation
 
-## Learn More
+To get started with Canva, follow these steps:
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone the repository:**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    ```bash
+    git clone https://github.com/your-username/canva.git
+    cd canva
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+2. **Install dependencies:**
 
-## Deploy on Vercel
+    ```bash
+    npm install
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. **Set up environment variables:**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+    Create a `.env` file in the root directory and add the following:
+
+    ```env
+    REACT_APP_API_URL=your_api_url
+    REACT_APP_AUTH_URL=your_auth_url
+    ```
+
+4. **Start the development server:**
+
+    ```bash
+    npm run dev
+    ```
+
+    The application will be available at `http://localhost:3000`.
+
+## Usage
+
+1. **Sign Up / Log In:**
+
+    Create an account or log in with your existing credentials.
+
+2. **Create a New Board:**
+
+    Click the "New Board" button to create a new board. You can name your board and start adding content.
+
+3. **Add Content:**
+
+    Use the toolbar to add sticky notes, shapes, text, and more. You can drag and drop items to rearrange them on the board.
+
+4. **Collaborate:**
+
+    Invite team members to your board and collaborate in real-time. Changes made by one user will be instantly reflected for all users.
+
+5. **Save and Share:**
+
+    Save your boards and share them with others using a unique URL.
+
+## Contributing
+
+We welcome contributions to Canva! To contribute:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Commit your changes and push to your branch.
+4. Open a pull request with a detailed description of your changes.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.

@@ -24,7 +24,7 @@ export const get = query({
         .order("desc")
         .collect();
 
-      const ids = favoritesBoards.map((board) => board.boardId);
+      const ids: any[] = favoritesBoards.map((board) => board.boardId);
 
       const boards = await getAllOrThrow(ctx.db, ids);
 

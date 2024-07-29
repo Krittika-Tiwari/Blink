@@ -13,7 +13,7 @@ export const Canvas = ({ boardId }: CanvasProps) => {
   const userCount = others.length;
 
   return (
-    <main className="h-full w-full relative bg-neutral-100 touch-none">
+    <main className="h-full w-full relative bg-neutral-100 dark:bg-slate-950 touch-none">
       <div className="absolute top-40 left-2">
         There are {userCount} other user(s) online
       </div>

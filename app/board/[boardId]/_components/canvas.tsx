@@ -1,6 +1,6 @@
 "use client";
 
-import { useOthers } from "@liveblocks/react/suspense";
+import { useOthers, useSelf } from "@liveblocks/react/suspense";
 import { Info } from "./info";
 import { Participants } from "./participants";
 import { ToolBar } from "./toolBar";
@@ -12,6 +12,8 @@ export const Canvas = ({ boardId }: CanvasProps) => {
   const others = useOthers();
   const userCount = others.length;
 
+  const info = useSelf();
+  console.log(info);
   return (
     <main className="h-full w-full relative bg-neutral-100 dark:bg-slate-950 touch-none">
       <div className="absolute top-40 left-2">

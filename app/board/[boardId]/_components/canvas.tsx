@@ -9,17 +9,9 @@ interface CanvasProps {
   boardId: string;
 }
 export const Canvas = ({ boardId }: CanvasProps) => {
-  const others = useOthers();
-  const userCount = others.length;
-
-  const info = useSelf();
-  console.log(info);
   return (
     <main className="h-full w-full relative bg-neutral-100 dark:bg-slate-950 touch-none">
-      <div className="absolute top-40 left-2">
-        There are {userCount} other user(s) online
-      </div>
-      <Info />
+      <Info boardId={boardId} />
       <Participants />
       <ToolBar />
     </main>

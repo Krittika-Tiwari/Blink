@@ -40,10 +40,11 @@ export const Navbar = () => {
           }}
         />
       </div>
+
+      {organization && <InviteButton />}
       <div>
         <ModeToggle />
       </div>
-      {organization && <InviteButton />}
       <div>
         <UserButton />
       </div>

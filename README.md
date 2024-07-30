@@ -1,6 +1,6 @@
 # Blink
 
-Blink is a collaborative online whiteboard platform that enables teams to work together in real-time. This project is a clone of the popular Miro application.
+Blink is a collaborative online whiteboard platform that enables teams to work together in real-time.
 
 <!-- ## Table of Contents
 

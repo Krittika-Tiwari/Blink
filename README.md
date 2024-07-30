@@ -1,8 +1,8 @@
-# Canva
+# Blink
 
-Canva is a collaborative online whiteboard platform that enables teams to work together in real-time. This project is a clone of the popular Miro application.
+Blink is a collaborative online whiteboard platform that enables teams to work together in real-time. This project is a clone of the popular Miro application.
 
-## Table of Contents
+<!-- ## Table of Contents
 
 - [Features](#features)
 - [Installation](#installation)
@@ -87,4 +87,4 @@ We welcome contributions to Canva! To contribute:
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details. -->

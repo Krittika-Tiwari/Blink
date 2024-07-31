@@ -1,90 +1,93 @@
 # Blink
 
-Blink is a collaborative online whiteboard platform that enables teams to work together in real-time.
-
-<!-- ## Table of Contents
-
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+Blink is a collaborative online whiteboard platform that enables teams to work together in real-time. It provides a seamless and interactive way to brainstorm, plan, and collaborate visually with team members, no matter where they are.
 
 ## Features
 
-- Real-time collaboration
-- Board creation and management
-- Drag-and-drop functionality
-- Sticky notes, shapes, and text
-- Zoom in/out and pan
-- User authentication
-- Responsive design
+- **Real-time collaboration:** Work simultaneously with team members on the same whiteboard.
+- **User authentication with Clerk:** Secure and easy-to-implement user authentication.
+- **Backend operations with Convex:** Efficient data handling and storage.
+- **Real-time updates with Liveblocks:** Instant updates to the whiteboard as users make changes.
 
-## Installation
+## Getting Started
 
-To get started with Canva, follow these steps:
+### Prerequisites
 
-1. **Clone the repository:**
+- Node.js
+- npm or yarn
 
-    ```bash
-    git clone https://github.com/your-username/canva.git
-    cd canva
+### Installation
+
+1. **Clone the Repository**
+
+    ```sh
+    git clone https://github.com/Krittika-Tiwari/Blink.git
+    cd blink
     ```
 
-2. **Install dependencies:**
+2. **Install Dependencies**
 
-    ```bash
+    ```sh
     npm install
+    # or
+    yarn install
     ```
 
-3. **Set up environment variables:**
+3. **Run Convex Dev**
 
-    Create a `.env` file in the root directory and add the following:
+    ```sh
+    npx convex dev
+    ```
+
+    This command will create a `.env.local` file with the necessary Convex environment variables.
+
+4. **Set Up Additional Environment Variables**
+
+    Add the necessary environment variables for Clerk and Liveblocks in the `.env.local` file.
 
     ```env
-    REACT_APP_API_URL=your_api_url
-    REACT_APP_AUTH_URL=your_auth_url
+    # Clerk
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=<your-clerk-frontend-api>
+    CLERK_SECRET_KEY=<your-clerk-api-key>
+    CLERK_DOMAIN=<your-clerk-domain>
+
+    # Liveblocks
+    LIVEBLOCKS_SECRET=<your-liveblocks-secret>
     ```
 
-4. **Start the development server:**
+### Usage
 
-    ```bash
+1. **Run the Development Server**
+
+    ```sh
     npm run dev
+    # or
+    yarn dev
     ```
 
-    The application will be available at `http://localhost:3000`.
+2. **Open the Application**
 
-## Usage
+    Open your browser and go to [http://localhost:3000](http://localhost:3000).
 
-1. **Sign Up / Log In:**
+### Deployment
 
-    Create an account or log in with your existing credentials.
+To deploy the application, follow the deployment guidelines of your chosen hosting provider. Ensure all environment variables are correctly set in your production environment.
 
-2. **Create a New Board:**
+### Built With
 
-    Click the "New Board" button to create a new board. You can name your board and start adding content.
+- [Next.js](https://nextjs.org/)
+- [Clerk](https://clerk.dev/)
+- [Convex](https://convex.dev/)
+- [Liveblocks](https://liveblocks.io/)
 
-3. **Add Content:**
+### Contributing
 
-    Use the toolbar to add sticky notes, shapes, text, and more. You can drag and drop items to rearrange them on the board.
+Contributions are welcome! Please read the [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
 
-4. **Collaborate:**
+### License
 
-    Invite team members to your board and collaborate in real-time. Changes made by one user will be instantly reflected for all users.
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
-5. **Save and Share:**
+### Acknowledgments
 
-    Save your boards and share them with others using a unique URL.
-
-## Contributing
-
-We welcome contributions to Canva! To contribute:
-
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Commit your changes and push to your branch.
-4. Open a pull request with a detailed description of your changes.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details. -->
+- All contributors and community members

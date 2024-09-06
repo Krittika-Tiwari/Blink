@@ -87,7 +87,7 @@ export type XYWH = {
 
 export enum Side {
   Top = 1,
-  Righ = 2,
+  Right = 2,
   Bottom = 3,
   Left = 4,
 }

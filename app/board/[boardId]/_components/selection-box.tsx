@@ -21,149 +21,156 @@ export const SelectionBox = memo(
         solleLayerId && root.layers.get(solleLayerId)?.type !== LayerType.Path
     );
 
-    const bonds = useSelectionBounds();
+    const bounds = useSelectionBounds();
 
-    if (!bonds) return null;
+    if (!bounds) return null;
 
     return (
       <>
         <rect
           className="fill-transparent stroke-blue-500 stroke-2 pointer-events-none"
-          style={{ transform: `translate(${bonds.x}px, ${bonds.y}px)` }}
+          style={{ transform: `translate(${bounds.x}px, ${bounds.y}px)` }}
           x={0}
           y={0}
-          width={bonds.width}
-          height={bonds.height}
+          width={bounds.width}
+          height={bounds.height}
         />
 
         {isShowingHandles && (
           <>
+            {/* Top-left handle */}
             <rect
               className="fill-white stroke-1 stroke-blue-500"
               x={0}
               y={0}
-              width={bonds.width}
-              height={bonds.height}
+              width={HANDLE_WIDTH}
+              height={HANDLE_WIDTH}
               style={{
                 cursor: "nwse-resize",
-                width: `${HANDLE_WIDTH}px`,
-                height: `${HANDLE_WIDTH}px`,
-                transform: `translate(${bonds.x - HANDLE_WIDTH / 2}px, ${bonds.y - HANDLE_WIDTH / 2}px)`,
+                transform: `translate(${bounds.x - HANDLE_WIDTH / 2}px, ${bounds.y - HANDLE_WIDTH / 2}px)`,
               }}
               onPointerDown={(e) => {
                 e.stopPropagation();
+                onResizeHandlePointerDown(Side.Top + Side.Left, bounds);
               }}
             />
+
+            {/* Top-center handle */}
             <rect
               className="fill-white stroke-1 stroke-blue-500"
               x={0}
               y={0}
-              width={bonds.width}
-              height={bonds.height}
+              width={HANDLE_WIDTH}
+              height={HANDLE_WIDTH}
               style={{
                 cursor: "ns-resize",
-                width: `${HANDLE_WIDTH}px`,
-                height: `${HANDLE_WIDTH}px`,
-                transform: `translate(${bonds.x + bonds.width / 2 - HANDLE_WIDTH / 2}px, ${bonds.y - HANDLE_WIDTH / 2}px)`,
+                transform: `translate(${bounds.x + bounds.width / 2 - HANDLE_WIDTH / 2}px, ${bounds.y - HANDLE_WIDTH / 2}px)`,
               }}
               onPointerDown={(e) => {
                 e.stopPropagation();
+                onResizeHandlePointerDown(Side.Top, bounds);
               }}
             />
+
+            {/* Top-right handle */}
             <rect
               className="fill-white stroke-1 stroke-blue-500"
               x={0}
               y={0}
-              width={bonds.width}
-              height={bonds.height}
+              width={HANDLE_WIDTH}
+              height={HANDLE_WIDTH}
               style={{
                 cursor: "nesw-resize",
-                width: `${HANDLE_WIDTH}px`,
-                height: `${HANDLE_WIDTH}px`,
-                transform: `translate(${bonds.x + bonds.width - HANDLE_WIDTH / 2}px, ${bonds.y - HANDLE_WIDTH / 2}px)`,
+                transform: `translate(${bounds.x + bounds.width - HANDLE_WIDTH / 2}px, ${bounds.y - HANDLE_WIDTH / 2}px)`,
               }}
               onPointerDown={(e) => {
                 e.stopPropagation();
+                onResizeHandlePointerDown(Side.Top + Side.Right, bounds);
               }}
             />
+
+            {/* Center-right handle */}
             <rect
               className="fill-white stroke-1 stroke-blue-500"
               x={0}
               y={0}
-              width={bonds.width}
-              height={bonds.height}
+              width={HANDLE_WIDTH}
+              height={HANDLE_WIDTH}
               style={{
                 cursor: "ew-resize",
-                width: `${HANDLE_WIDTH}px`,
-                height: `${HANDLE_WIDTH}px`,
-                transform: `translate(${bonds.x + bonds.width - HANDLE_WIDTH / 2}px, ${bonds.y + bonds.height / 2 - HANDLE_WIDTH / 2}px)`,
+                transform: `translate(${bounds.x + bounds.width - HANDLE_WIDTH / 2}px, ${bounds.y + bounds.height / 2 - HANDLE_WIDTH / 2}px)`,
               }}
               onPointerDown={(e) => {
                 e.stopPropagation();
+                onResizeHandlePointerDown(Side.Right, bounds);
               }}
             />
+
+            {/* Bottom-right handle */}
             <rect
               className="fill-white stroke-1 stroke-blue-500"
               x={0}
               y={0}
-              width={bonds.width}
-              height={bonds.height}
-              style={{
-                cursor: "nesw-resize",
-                width: `${HANDLE_WIDTH}px`,
-                height: `${HANDLE_WIDTH}px`,
-                transform: `translate(${bonds.x - HANDLE_WIDTH / 2}px, ${bonds.y + bonds.height - HANDLE_WIDTH / 2}px)`,
-              }}
-              onPointerDown={(e) => {
-                e.stopPropagation();
-              }}
-            />
-            <rect
-              className="fill-white stroke-1 stroke-blue-500"
-              x={0}
-              y={0}
-              width={bonds.width}
-              height={bonds.height}
-              style={{
-                cursor: "ns-resize",
-                width: `${HANDLE_WIDTH}px`,
-                height: `${HANDLE_WIDTH}px`,
-                transform: `translate(${bonds.x + bonds.width / 2 - HANDLE_WIDTH / 2}px, ${bonds.y + bonds.height - HANDLE_WIDTH / 2}px)`,
-              }}
-              onPointerDown={(e) => {
-                e.stopPropagation();
-              }}
-            />
-            <rect
-              className="fill-white stroke-1 stroke-blue-500"
-              x={0}
-              y={0}
-              width={bonds.width}
-              height={bonds.height}
+              width={HANDLE_WIDTH}
+              height={HANDLE_WIDTH}
               style={{
                 cursor: "nwse-resize",
-                width: `${HANDLE_WIDTH}px`,
-                height: `${HANDLE_WIDTH}px`,
-                transform: `translate(${bonds.x + bonds.width - HANDLE_WIDTH / 2}px, ${bonds.y + bonds.height - HANDLE_WIDTH / 2}px)`,
+                transform: `translate(${bounds.x + bounds.width - HANDLE_WIDTH / 2}px, ${bounds.y + bounds.height - HANDLE_WIDTH / 2}px)`,
               }}
               onPointerDown={(e) => {
                 e.stopPropagation();
+                onResizeHandlePointerDown(Side.Bottom + Side.Right, bounds);
               }}
             />
+
+            {/* Bottom-center handle */}
             <rect
               className="fill-white stroke-1 stroke-blue-500"
               x={0}
               y={0}
-              width={bonds.width}
-              height={bonds.height}
+              width={HANDLE_WIDTH}
+              height={HANDLE_WIDTH}
               style={{
-                cursor: "ew-resize",
-                width: `${HANDLE_WIDTH}px`,
-                height: `${HANDLE_WIDTH}px`,
-                transform: `translate(${bonds.x - HANDLE_WIDTH / 2}px, ${bonds.y + bonds.height / 2 - HANDLE_WIDTH / 2}px)`,
+                cursor: "ns-resize",
+                transform: `translate(${bounds.x + bounds.width / 2 - HANDLE_WIDTH / 2}px, ${bounds.y + bounds.height - HANDLE_WIDTH / 2}px)`,
               }}
               onPointerDown={(e) => {
                 e.stopPropagation();
+                onResizeHandlePointerDown(Side.Bottom, bounds);
+              }}
+            />
+
+            {/* Bottom-left handle */}
+            <rect
+              className="fill-white stroke-1 stroke-blue-500"
+              x={0}
+              y={0}
+              width={HANDLE_WIDTH}
+              height={HANDLE_WIDTH}
+              style={{
+                cursor: "nesw-resize",
+                transform: `translate(${bounds.x - HANDLE_WIDTH / 2}px, ${bounds.y + bounds.height - HANDLE_WIDTH / 2}px)`,
+              }}
+              onPointerDown={(e) => {
+                e.stopPropagation();
+                onResizeHandlePointerDown(Side.Bottom + Side.Left, bounds);
+              }}
+            />
+
+            {/* Center-left handle */}
+            <rect
+              className="fill-white stroke-1 stroke-blue-500"
+              x={0}
+              y={0}
+              width={HANDLE_WIDTH}
+              height={HANDLE_WIDTH}
+              style={{
+                cursor: "ew-resize",
+                transform: `translate(${bounds.x - HANDLE_WIDTH / 2}px, ${bounds.y + bounds.height / 2 - HANDLE_WIDTH / 2}px)`,
+              }}
+              onPointerDown={(e) => {
+                e.stopPropagation();
+                onResizeHandlePointerDown(Side.Left, bounds);
               }}
             />
           </>

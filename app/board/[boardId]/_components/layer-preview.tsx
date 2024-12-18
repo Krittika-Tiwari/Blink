@@ -2,7 +2,6 @@
 
 import { LayerType } from "@/types/canvas";
 import { useStorage } from "@liveblocks/react/suspense";
-import { root } from "postcss";
 import React, { memo } from "react";
 import { Rectangle } from "./rectangle";
 
@@ -31,7 +30,7 @@ export const LayerPreview = memo(
         console.warn("unknown layer type");
         return null;
     }
-    return <div></div>;
+
   }
 );
 

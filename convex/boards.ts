@@ -24,7 +24,7 @@ export const get = query({
         .order("desc")
         .collect();
 
-      const ids: any[] = favoritesBoards.map((board) => board.boardId);
+      const ids = favoritesBoards.map((b) => b.boardId);
 
       const boards = await getAllOrThrow(ctx.db, ids);
 
@@ -39,7 +39,7 @@ export const get = query({
     if (title) {
       boards = await ctx.db
         .query("boards")
-        .withSearchIndex("search_titte", (q) =>
+        .withSearchIndex("search_title", (q) =>
           q.search("title", title).eq("orgId", args.orgId)
         )
         .collect();

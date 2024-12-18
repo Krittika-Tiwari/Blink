@@ -35,6 +35,7 @@ export const Footer = ({
       </p>
 
       <button
+        title="Favorite"
         disabled={disabled}
         onClick={handelClick}
         className={cn(

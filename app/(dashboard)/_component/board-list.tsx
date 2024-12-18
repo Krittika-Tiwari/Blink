@@ -61,7 +61,7 @@ export const BoardList = ({ orgId, query }: BoardListProps) => {
             id={board._id}
             title={board.title}
             imageUrl={board.imageUrl}
-            authorId={board.authorld}
+            authorId={board.authorId}
             authorname={board.authorName}
             createdAt={board._creationTime}
             orgId={board.orgId}

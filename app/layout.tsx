@@ -5,6 +5,8 @@ import { ConvexClientProvider } from "@/providers/convex-client-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { ModelProvider } from "@/providers/modal-provider";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Suspense } from "react";
+import Loading from "@/components/auth/loading";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -20,18 +22,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ConvexClientProvider>
+        <Suspense fallback={<Loading />}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
           >
-            <Toaster />
-            <ModelProvider />
-            {children}
+            <ConvexClientProvider>
+              <Toaster />
+              <ModelProvider />
+              {children}
+            </ConvexClientProvider>
           </ThemeProvider>
-        </ConvexClientProvider>
+        </Suspense>
       </body>
     </html>
   );

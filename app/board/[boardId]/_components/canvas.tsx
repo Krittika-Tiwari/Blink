@@ -295,8 +295,6 @@ export const Canvas = ({ boardId }: CanvasProps) => {
         continueDrawing(current, e);
       }
 
-      // console.log({ current });
-
       setMyPresence({
         cursor: current,
       });

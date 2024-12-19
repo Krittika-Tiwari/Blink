@@ -23,7 +23,7 @@ export const ConvexClientProvider = ({
         {children}
         </Authenticated>
         <AuthLoading>
-            <Loading/>
+            <Loading />
         </AuthLoading>
       </ConvexProviderWithClerk>
     </ClerkProvider>

@@ -21,7 +21,6 @@ export const Cursor = memo(({ connectionId }: CursorProps) => {
 
   const { x, y } = cursor;
 
-  console.log({ x, y });
   return (
     <foreignObject
       style={{ transform: `translateX(${x}px) translateY(${y}px)` }}

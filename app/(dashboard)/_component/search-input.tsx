@@ -1,20 +1,17 @@
 "use client";
 
-import qs from "query-string";
-import { Search } from "lucide-react";
-
-import { useRouter } from "next/navigation";
-
-import { useEffect, ChangeEvent, useState } from "react";
 import { Input } from "@/components/ui/input";
-import { useDebounce } from "ahooks";
+import { Search } from "lucide-react";
+import { useRouter } from "next/navigation";
+import qs from "query-string";
+import { useEffect } from "react";
+import { useDebounceValue } from "usehooks-ts";
 
-export const SearchInput = () => {
+export function SearchInput() {
   const router = useRouter();
-  const [value, setValue] = useState("");
-  const debouncedValue = useDebounce(value, {wait: 500});
+  const [debounceValue, setValue] = useDebounceValue("", 500);
 
-  const handelChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setValue(e.target.value);
   };
 
@@ -23,7 +20,7 @@ export const SearchInput = () => {
       {
         url: "/",
         query: {
-          search: debouncedValue,
+          search: debounceValue,
         },
       },
       {
@@ -33,16 +30,16 @@ export const SearchInput = () => {
     );
 
     router.push(url);
-  }, [debouncedValue, router]);
+  }, [debounceValue, router]);
+
   return (
     <div className="w-full relative">
-      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />{" "}
+      <Search className="absolute top-1/2 left-3 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
       <Input
         className="w-full max-w-[516px] pl-9"
         placeholder="Search boards"
-        onChange={(event) => setValue(event.target.value)}
-        value={value}
+        onChange={handleChange}
       />
     </div>
   );
-};
+}
